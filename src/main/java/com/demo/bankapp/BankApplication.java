@@ -11,6 +11,8 @@ public class BankApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BankApplication.class, args);
+		// hot fix1
+		 System.out.println("hi hotfix1");
 	}
 
 	@Bean
