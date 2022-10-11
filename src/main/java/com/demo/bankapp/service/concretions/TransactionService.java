@@ -12,28 +12,28 @@ import com.demo.bankapp.service.abstractions.ITransactionService;
 
 @Service
 public class TransactionService implements ITransactionService {
-
-	private TransactionRepository repository;
+	// hotfix2
+	private TransactionRepository repository1;
 
 	@Autowired
 	public TransactionService(TransactionRepository repository) {
-		this.repository = repository;
+		this.repository1 = repository;
 	}
 
 	@Override
 	public Transaction createNewTransaction(Long userId, boolean isBuying, String currency, BigDecimal amount) {
 		Transaction transaction = new Transaction(userId, isBuying, currency, amount);
-		return repository.save(transaction);
+		return repository1.save(transaction);
 	}
 
 	@Override
 	public int getOperationCountFromLast24Hours(Long userId) {
-		return repository.getOperationCountFromLast24Hours(userId);
+		return repository1.getOperationCountFromLast24Hours(userId);
 	}
 
 	@Override
 	public List<Transaction> findAllByUserId(Long userId) {
-		return repository.findAllByUserId(userId);
+		return repository1.findAllByUserId(userId);
 	}
 
 }
